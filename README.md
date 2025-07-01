@@ -42,8 +42,4 @@ This project is licensed under the MIT License.
 
 ---
 
-## Contact
 
-If you have questions or feedback, feel free to open an issue or email me at **YOUR_EMAIL@example.com**.
-
-# LifeCents
