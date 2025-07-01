@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time to Earn Settings</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="LifeCents.jpg" alt="LifeCents Logo" class="logo">
+            <h1>Time to Earn Settings</h1>
+        </div>
+
+        <form id="settingsForm">
+            <div class="section">
+                <div class="input-group">
+                    <label for="hourlyRate">Hourly Wage</label>
+                    <div class="input-with-prefix">
+                        <span class="prefix">$</span>
+                        <input type="number" id="hourlyRate" placeholder="25.00" step="0.01" min="0" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <label class="section-label">Display Mode</label>
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="displayMode" value="price-only" checked>
+                        <span class="radio-custom"></span>
+                        Price only
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="displayMode" value="time-only">
+                        <span class="radio-custom"></span>
+                        Time only
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="displayMode" value="both">
+                        <span class="radio-custom"></span>
+                        Both
+                    </label>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="input-group">
+                    <label for="tooltipText">Tooltip Text</label>
+                    <input type="text" id="tooltipText" placeholder="Time to earn this" required>
+                </div>
+            </div>
+
+            <button type="submit" class="save-button">Save Changes</button>
+        </form>
+    </div>
+    <script src="popup.js"></script>
+</body>
+
+</html>

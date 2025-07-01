@@ -1,0 +1,197 @@
+/* Content script styles for price-to-time tooltips */
+
+.price-time-tooltip {
+    position: absolute;
+    background: linear-gradient(145deg, #e6e6e6, #ffffff);
+    border-radius: 12px;
+    padding: 12px 16px;
+    box-shadow:
+        8px 8px 16px #d1d1d1,
+        -8px -8px 16px #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    color: #2c3e50;
+    z-index: 10000;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    max-width: 200px;
+    white-space: nowrap;
+}
+
+.price-time-tooltip .tooltip-content {
+    text-align: center;
+}
+
+.price-time-tooltip .tooltip-header {
+    font-size: 12px;
+    color: #7f8c8d;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.price-time-tooltip .tooltip-time {
+    font-size: 16px;
+    font-weight: 700;
+    color: #3498db;
+    margin-bottom: 2px;
+}
+
+.price-time-tooltip .tooltip-rate {
+    font-size: 11px;
+    color: #95a5a6;
+    font-weight: 500;
+}
+
+.price-time-tooltip.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.price-element {
+    cursor: help;
+    position: relative;
+    transition: background-color 0.2s ease;
+}
+
+.price-element:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+    border-radius: 4px;
+}
+
+.price-context-menu {
+    position: fixed;
+    background: linear-gradient(145deg, #e6e6e6, #ffffff);
+    border-radius: 12px;
+    padding: 8px 0;
+    box-shadow:
+        8px 8px 16px #d1d1d1,
+        -8px -8px 16px #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    color: #2c3e50;
+    z-index: 10001;
+    min-width: 200px;
+}
+
+.price-context-menu .context-menu-item {
+    padding: 8px 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease;
+}
+
+.price-context-menu .context-menu-item:last-child {
+    border-bottom: none;
+}
+
+.price-context-menu .context-menu-item:hover {
+    background: rgba(52, 152, 219, 0.1);
+}
+
+/* Ensure tooltips don't interfere with page content */
+.price-time-tooltip,
+.price-context-menu {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    box-sizing: border-box !important;
+}
+
+/* Animation for smooth appearance */
+@keyframes tooltipFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.price-time-tooltip.show {
+    animation: tooltipFadeIn 0.3s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .price-time-tooltip {
+        max-width: 150px;
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+
+    .price-time-tooltip .tooltip-time {
+        font-size: 14px;
+    }
+
+    .price-context-menu {
+        min-width: 150px;
+        font-size: 12px;
+    }
+}
+
+.lifecents-highlight {
+    background: rgba(255, 235, 59, 0.3) !important;
+    color: inherit !important;
+    padding: 2px 4px;
+    border-radius: 3px;
+    border: 1px solid rgba(255, 193, 7, 0.5);
+    cursor: help;
+    position: relative;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    font-family: inherit !important;
+    line-height: inherit !important;
+    letter-spacing: inherit !important;
+}
+
+.lifecents-replaced {
+    color: inherit !important;
+    font-weight: inherit !important;
+    background: transparent !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    font-size: inherit !important;
+    font-family: inherit !important;
+    line-height: inherit !important;
+    letter-spacing: inherit !important;
+    display: inline !important;
+    margin: 0 !important;
+}
+
+.lifecents-tooltip {
+    position: absolute;
+    background: #333;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    white-space: nowrap;
+    z-index: 10000;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: opacity 0.2s ease;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100%);
+}
+
+.lifecents-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: #333;
+}
+
+.lifecents-highlight:hover .lifecents-tooltip {
+    opacity: 1;
+}

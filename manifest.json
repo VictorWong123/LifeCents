@@ -1,0 +1,38 @@
+{
+    "manifest_version": 3,
+    "name": "LifeCents",
+    "version": "1.0",
+    "description": "Convert prices into time based on your income and work hours.",
+    "permissions": [
+        "activeTab",
+        "storage"
+    ],
+    "icons": {
+        "16": "LifeCents.jpg",
+        "32": "LifeCents.jpg",
+        "48": "LifeCents.jpg",
+        "128": "LifeCents.jpg"
+    },
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "LifeCents",
+        "default_icon": {
+            "16": "LifeCents.jpg",
+            "32": "LifeCents.jpg",
+            "48": "LifeCents.jpg"
+        }
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "css": [
+                "content.css"
+            ]
+        }
+    ]
+}
